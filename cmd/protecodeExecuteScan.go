@@ -35,6 +35,7 @@ var cacheProtecodeImagePath = "/protecode/Image"
 var cacheProtecodePath = "/protecode"
 
 func protecodeExecuteScan(config protecodeExecuteScanOptions, telemetryData *telemetry.CustomData, influx *protecodeExecuteScanInflux) {
+	log.SetVerbose(true)
 	c := command.Command{}
 	// reroute command output to loging framework
 	c.Stdout(log.Writer())
