@@ -42,7 +42,7 @@ class PiperGoUtils implements Serializable {
             def libraries = getLibrariesInfo()
             String version
             libraries.each {lib ->
-                if (lib.name == 'piper-lib-os') {
+                if (lib.name == 'dee0-piper-lib-os') {
                     version = lib.version
                 }
             }
