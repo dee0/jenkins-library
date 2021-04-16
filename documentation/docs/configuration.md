@@ -2,7 +2,7 @@
 
 Configure your project through a yml-file, which is located at `.pipeline/config.yml` in the **master branch** of your source code repository.
 
-Your configuration inherits from the default configuration located at [https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml](https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml).
+Your configuration inherits from the default configuration located at [https://github.com/SAP/jenkins-library/blob/master/resources/dee0-default_pipeline_environment.yml](https://github.com/SAP/jenkins-library/blob/master/resources/dee0-default_pipeline_environment.yml).
 
 !!! caution "Adding custom parameters"
     Please note that adding custom parameters to the configuration is at your own risk.
@@ -37,7 +37,7 @@ Following data (non-personal) is collected for example:
 
     This is done with either of the following two ways:
 
-    1. General deactivation in your `.pipeline/config.yml` file by setting the configuration parameter `general -> collectTelemetryData: false` (default setting can be found in the [library defaults](https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml)).
+    1. General deactivation in your `.pipeline/config.yml` file by setting the configuration parameter `general -> collectTelemetryData: false` (default setting can be found in the [library defaults](https://github.com/SAP/jenkins-library/blob/master/resources/dee0-default_pipeline_environment.yml)).
 
         **Please note: this will only take effect in all steps if you run `setupCommonPipelineEnvironment` at the beginning of your pipeline**
 

@@ -13,7 +13,7 @@ import com.sap.piper.Utils
 import groovy.transform.Field
 
 @Field String METADATA_FILE = 'metadata/xsDeploy.yaml'
-@Field String PIPER_DEFAULTS = 'default_pipeline_environment.yml'
+@Field String PIPER_DEFAULTS = 'dee0-default_pipeline_environment.yml'
 @Field String STEP_NAME = getClass().getName()
 @Field String METADATA_FOLDER = '.pipeline' // metadata file contains already the "metadata" folder level, hence we end up in a folder ".pipeline/metadata"
 @Field String ADDITIONAL_CONFIGS_FOLDER='.pipeline/additionalConfigs'

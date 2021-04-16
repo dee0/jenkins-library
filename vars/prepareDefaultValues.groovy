@@ -12,7 +12,7 @@ import static com.sap.piper.Prerequisites.checkScript
 @Field Set PARAMETER_KEYS = []
 
 /**
- * Loads the pipeline library default values from the file `resources/default_pipeline_environment.yml`.
+ * Loads the pipeline library default values from the file `resources/dee0-default_pipeline_environment.yml`.
  * Afterwards the values can be loaded by the method: `ConfigurationLoader.defaultStepConfiguration`
  */
 @GenerateDocumentation

@@ -51,7 +51,7 @@ class SetupCommonPipelineEnvironmentTest extends BasePiperTest {
 
         helper.registerAllowedMethod("libraryResource", [String], { fileName ->
             switch(fileName) {
-                case 'default_pipeline_environment.yml': return "default: 'config'"
+                case 'dee0-default_pipeline_environment.yml': return "default: 'config'"
                 case 'custom.yml': return "custom: 'myConfig'"
                 case 'notFound.yml': throw new hudson.AbortException('No such library resource notFound could be found')
                 default: return "the:'end'"
@@ -64,7 +64,7 @@ class SetupCommonPipelineEnvironmentTest extends BasePiperTest {
                 return yamlParser.load(parameters.text)
             } else if (parameters.file) {
                 switch (parameters.file) {
-                    case '.pipeline/default_pipeline_environment.yml':
+                    case '.pipeline/dee0-default_pipeline_environment.yml':
                         return [default: 'config']
                     case '.pipeline/custom.yml':
                         return [custom: 'myConfig']
@@ -153,7 +153,7 @@ class SetupCommonPipelineEnvironmentTest extends BasePiperTest {
 
         helper.registerAllowedMethod("fileExists", [String], { String path ->
             switch(path) {
-                case 'default_pipeline_environment.yml': return false
+                case 'dee0-default_pipeline_environment.yml': return false
                 case 'custom.yml': return false
                 case 'notFound.yml': return false
                 case '': throw new RuntimeException('cannot call fileExists with empty path')
@@ -180,7 +180,7 @@ class SetupCommonPipelineEnvironmentTest extends BasePiperTest {
 
         helper.registerAllowedMethod("fileExists", [String], { String path ->
             switch(path) {
-                case 'default_pipeline_environment.yml': return false
+                case 'dee0-default_pipeline_environment.yml': return false
                 case '': throw new RuntimeException('cannot call fileExists with empty path')
                 default: return true
             }
@@ -215,7 +215,7 @@ class SetupCommonPipelineEnvironmentTest extends BasePiperTest {
     void testAttemptToLoadFileFromURL() {
         helper.registerAllowedMethod("fileExists", [String], {String path ->
             switch (path) {
-                case 'default_pipeline_environment.yml': return false
+                case 'dee0-default_pipeline_environment.yml': return false
                 case '': throw new RuntimeException('cannot call fileExists with empty path')
                 default: return true
             }

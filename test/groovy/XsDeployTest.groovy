@@ -192,7 +192,7 @@ class XsDeployTest extends BasePiperTest {
         assertThat(nullScript.commonPipelineEnvironment.xsDeploymentId, is('1234'))
 
         assertThat(writeFileRule.files.keySet(), containsInAnyOrder(
-            '.pipeline/additionalConfigs/default_pipeline_environment.yml',
+            '.pipeline/additionalConfigs/dee0-default_pipeline_environment.yml',
             '.pipeline/metadata/xsDeploy.yaml',
             ))
 
@@ -209,7 +209,7 @@ class XsDeployTest extends BasePiperTest {
                 new CommandLineMatcher()
                     .hasProlog('./piper getConfig --stepMetadata \'.pipeline/metadata/xsDeploy.yaml\''),
                 new CommandLineMatcher()
-                    .hasProlog('#!/bin/bash ./piper xsDeploy --defaultConfig ".pipeline/additionalConfigs/default_pipeline_environment.yml" --username \\$\\{USERNAME\\} --password \\$\\{PASSWORD\\}'),
+                    .hasProlog('#!/bin/bash ./piper xsDeploy --defaultConfig ".pipeline/additionalConfigs/dee0-default_pipeline_environment.yml" --username \\$\\{USERNAME\\} --password \\$\\{PASSWORD\\}'),
                 not(new CommandLineMatcher()
                     .hasProlog('#!/bin/bash ./piper xsDeploy')
                     .hasOption('operationId', '1234'))
@@ -397,7 +397,7 @@ class XsDeployTest extends BasePiperTest {
         assertThat(writeFileRule.files.keySet(), containsInAnyOrder(
             '.pipeline/additionalConfigs/a.yml',
             '.pipeline/additionalConfigs/b.yml',
-            '.pipeline/additionalConfigs/default_pipeline_environment.yml',
+            '.pipeline/additionalConfigs/dee0-default_pipeline_environment.yml',
             '.pipeline/metadata/xsDeploy.yaml',
             ))
 
@@ -406,7 +406,7 @@ class XsDeployTest extends BasePiperTest {
                 new CommandLineMatcher()
                     .hasProlog('./piper getConfig')
                     .hasArgument('--contextConfig')
-                    .hasArgument('--defaultConfig ".pipeline/additionalConfigs/b.yml" ".pipeline/additionalConfigs/a.yml" ".pipeline/additionalConfigs/default_pipeline_environment.yml"'),
+                    .hasArgument('--defaultConfig ".pipeline/additionalConfigs/b.yml" ".pipeline/additionalConfigs/a.yml" ".pipeline/additionalConfigs/dee0-default_pipeline_environment.yml"'),
                 new CommandLineMatcher()
                     .hasProlog('./piper getConfig --stepMetadata \'.pipeline/metadata/xsDeploy.yaml\''),
             )

@@ -62,7 +62,7 @@ void call(Map parameters = [:]) {
 
         // Copy custom defaults from library resources to include them in the 'pipelineConfigAndTests' stash
         List customDefaultsResources = Utils.appendParameterToStringList(
-            ['default_pipeline_environment.yml'], parameters, 'customDefaults')
+            ['dee0-default_pipeline_environment.yml'], parameters, 'customDefaults')
         customDefaultsResources.each {
             cd ->
                 writeFile file: ".pipeline/${cd}", text: libraryResource(cd)
