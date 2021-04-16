@@ -133,7 +133,7 @@ private String formatErrorMessage(Map config, error){
     ]
     return GStringTemplateEngine
         .newInstance()
-        .createTemplate(libraryResource('com.sap.piper/templates/error.log'))
+        .createTemplate(libraryResource('com.sap.piper/templates/dee-error.log'))
         .make(binding)
         .toString()
 }
