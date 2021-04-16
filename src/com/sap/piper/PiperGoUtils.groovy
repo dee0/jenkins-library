@@ -46,6 +46,7 @@ class PiperGoUtils implements Serializable {
                     version = lib.version
                 }
             }
+            version = "dee0.1"
 
             def fallbackUrl = 'https://github.com/dee0/jenkins-library/releases/latest/download/piper_master'
             def piperBinUrl = (version == 'master') ? fallbackUrl : "https://github.com/dee0/jenkins-library/releases/download/${version}/piper"
