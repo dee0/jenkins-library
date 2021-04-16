@@ -109,6 +109,7 @@ func (pc *Protecode) SetOptions(options Options) {
 	} else {
 		pc.logger = log.Entry().WithField("package", "SAP/jenkins-library/pkg/protecode")
 	}
+	pc.logger.SetVerbose(true)
 
 	httpOptions := piperHttp.ClientOptions{MaxRequestDuration: options.Duration, Username: options.Username, Password: options.Password, Logger: options.Logger}
 	pc.client.SetOptions(httpOptions)
@@ -148,6 +149,7 @@ func (pc *Protecode) mapResponse(r io.ReadCloser, response interface{}) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(r)
 	newStr := buf.String()
+	pc.logger.Info( "Response from server: %v", newStr )
 	if len(newStr) > 0 {
 
 		unquoted, err := strconv.Unquote(newStr)
@@ -167,7 +169,7 @@ func (pc *Protecode) mapResponse(r io.ReadCloser, response interface{}) {
 }
 
 func (pc *Protecode) sendAPIRequest(method string, url string, headers map[string][]string) (*io.ReadCloser, error) {
-
+	pc.logger.Info( "Making api request: %v %v %v", method, url, headers )
 	r, err := pc.client.SendRequest(method, url, nil, headers, nil)
 	if err != nil {
 		return nil, err
@@ -340,6 +342,7 @@ func (pc *Protecode) PollForResult(productID int, timeOutInMinutes string) Resul
 		parsedTimeOutInMinutes, _ := strconv.ParseInt(timeOutInMinutes, 10, 64)
 		ticks = parsedTimeOutInMinutes * 6
 	}
+	ticks = ticks * 2
 
 	pc.logger.Infof("Poll for result %v times", ticks)
 
